@@ -149,21 +149,35 @@ public class DDL_DO extends AppCompatActivity {
                 edit_time = (ImageView) view_in.findViewById(R.id.edit_time);
                 day_diff = (TextView) view_in.findViewById(R.id.num);
 
+
+
                 if(title!=null) title.setText(data.get(position).get("title").toString());
                 if(content!=null) content.setText(data.get(position).get("content").toString());
-                if(time!=null) time.setText(data.get(position).get("time").toString());
-                if(day_diff!=null) day_diff.setText(String.valueOf(compareDataToNow(data.get(position).get("time").toString())));
+                final String temp_time = data.get(position).get("time").toString();
+                if(time!=null) time.setText(temp_time);
+                if(day_diff!=null) day_diff.setText(String.valueOf(compareDataToNow(temp_time)));
+
+
+                /*
+                final int year = Integer.parseInt(temp_time.substring(0,4));
+                final int month = Integer.parseInt(temp_time.substring(5,7));
+                final int day = Integer.parseInt(temp_time.substring(8,10));
+                final int hour = Integer.parseInt(temp_time.substring(12,14));
+                final int min = Integer.parseInt(temp_time.substring(15,17));
+                */
 
                 edit_time.setColorFilter(R.color.colorAccent);
-
                 edit_time.setOnClickListener(new View.OnClickListener() {
                     public void  onClick(View v) {
+
                         picker.setDateRangeStart(2018, 1, 1);//日期起点
                         picker.setDateRangeEnd(2020, 1,1);//日期终点
                         picker.setTimeRangeStart(0, 0);//时间范围起点
                         picker.setTimeRangeEnd(23, 59);//时间范围终点
+                        //picker.setSelectedItem(year,month,day,hour,min);
                         picker.setTextColor(getResources().getColor(R.color.colorAccent));
                         picker.setCanceledOnTouchOutside(true);
+                        picker.setCycleDisable(false);
 
                         picker.setOnDateTimePickListener(new DateTimePicker.OnYearMonthDayTimePickListener() {
                             @Override

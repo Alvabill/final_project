@@ -48,6 +48,7 @@ public class DDL_ADD extends AppCompatActivity {
                 picker.setTimeRangeEnd(23, 59);//时间范围终点
                 picker.setTextColor(getResources().getColor(R.color.colorAccent));
                 picker.setCanceledOnTouchOutside(true);
+                picker.setCycleDisable(false);
                 picker.setOnDateTimePickListener(new DateTimePicker.OnYearMonthDayTimePickListener() {
                     @Override
                     public void onDateTimePicked(String year, String month, String day, String hour, String minute) {
