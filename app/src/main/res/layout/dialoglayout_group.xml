@@ -6,7 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="是否加入该班级"
-        android:textSize="25dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"/>
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
 </LinearLayout>

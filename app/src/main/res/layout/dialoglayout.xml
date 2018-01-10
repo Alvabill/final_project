@@ -12,7 +12,9 @@
         android:textSize="16sp"
         android:layout_marginStart="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/num"/>
+        app:layout_constraintBaseline_toBaselineOf="@+id/num"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
 
     <TextView
         android:id="@+id/num"
