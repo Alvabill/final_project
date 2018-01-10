@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:text="DDL Editor"
+        android:textSize="32sp"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/add_title"
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="DDL Title Here" />
+
+    <EditText
+        android:id="@+id/add_content"
+        android:layout_weight="15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="DDL Content Here"
+        android:gravity="top"/>
+
+    <TextView
+        android:id="@+id/time_pick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text=">> 设置DDL时间"
+        android:textSize="18sp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center_vertical" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"/>
+
+
+    <Button
+        android:id="@+id/add_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center" />
+
+</LinearLayout>
