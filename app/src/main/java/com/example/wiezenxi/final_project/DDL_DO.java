@@ -225,7 +225,7 @@ public class DDL_DO extends AppCompatActivity {
                                             ddl.setMonth(Integer.parseInt(s_month));
                                             ddl.setDay(Integer.parseInt(s_day));
                                             ddl.setHour(Integer.parseInt(s_hour));
-                                            ddl.setDay(Integer.parseInt(s_min));
+                                            ddl.setMin(Integer.parseInt(s_min));
                                             ddl.update(data.get(position).get("object_id").toString(), new UpdateListener() {
                                                 @Override
                                                 public void done(BmobException e) {
