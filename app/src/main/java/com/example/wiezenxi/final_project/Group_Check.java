@@ -26,8 +26,8 @@ public class Group_Check extends AppCompatActivity {
         final TextView  name = (TextView) findViewById(R.id.group_name);
         final TextView id = (TextView) findViewById(R.id.manager_id);
         final Button ddl = (Button) findViewById(R.id.ddl);
-        name.setText("班级名:"+group_name);
-        id.setText("管理员id::"+manager_id);
+        name.setText("CLASS: "+group_name);
+        id.setText("USER ID: "+manager_id);
         if(!manager_id.equals(person_id)){
             ddl.setVisibility(View.GONE);
         }
