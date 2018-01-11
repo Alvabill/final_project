@@ -36,7 +36,7 @@ import cn.bmob.v3.listener.UpdateListener;
 public class Group_DO extends AppCompatActivity {
     private ListView mListView;
     private List<Map<String, Object>> data = new ArrayList<>();
-    private SimpleAdapter simpleAdapter;
+    private ddlListAdapter mAdapter;
     private String person_id;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data1) {
@@ -65,7 +65,7 @@ public class Group_DO extends AppCompatActivity {
                                 temp.put("member_id",list.get(i).getMember_id());
                                 temp.put("object_id",list.get(i).getObjectId());
                                 data.add(temp);
-                                simpleAdapter.notifyDataSetChanged();
+                                mAdapter.notifyDataSetChanged();
                             }
                         }
                     }
@@ -82,11 +82,9 @@ public class Group_DO extends AppCompatActivity {
         person_id = (String) bundle.getSerializable("person_id");
         final Button add = (Button) findViewById(R.id.add_group);
         final Button create = (Button) findViewById(R.id.create_group);
-        simpleAdapter=new SimpleAdapter(this,data,R.layout.group_item,
-                new String[]{"group_name"},
-                new int[]{R.id.group_name});
+        mAdapter = new ddlListAdapter(this, data);
         mListView = (ListView)findViewById(R.id.groups);
-        mListView.setAdapter(simpleAdapter);
+        mListView.setAdapter(mAdapter);
         //遍历group表
         BmobQuery<Group> bmobQuery = new BmobQuery<Group>();
         bmobQuery.findObjects(new FindListener<Group>() {  //按行查询，查到的数据放到List<Goods>的集合
@@ -115,7 +113,7 @@ public class Group_DO extends AppCompatActivity {
                             temp.put("member_id",list.get(i).getMember_id());
                             temp.put("object_id",list.get(i).getObjectId());
                             data.add(temp);
-                            simpleAdapter.notifyDataSetChanged();
+                            mAdapter.notifyDataSetChanged();
                         }
                     }
                 }
@@ -172,7 +170,7 @@ public class Group_DO extends AppCompatActivity {
                                                 if(e==null){
                                                     Toast.makeText(Group_DO.this, "解散成功" , Toast.LENGTH_SHORT).show();
                                                     data.remove(position);
-                                                    simpleAdapter.notifyDataSetChanged();
+                                                    mAdapter.notifyDataSetChanged();
                                                 }else{
                                                     Toast.makeText(Group_DO.this, "解散失败" , Toast.LENGTH_SHORT).show();
                                                 }
@@ -196,7 +194,7 @@ public class Group_DO extends AppCompatActivity {
                                                 if(e==null){
                                                     Toast.makeText(Group_DO.this, "退出成功" , Toast.LENGTH_SHORT).show();
                                                     data.remove(position);
-                                                    simpleAdapter.notifyDataSetChanged();
+                                                    mAdapter.notifyDataSetChanged();
                                                 }else{
                                                     Log.i("tag=", e.getMessage());
                                                     Toast.makeText(Group_DO.this, "退出失败" , Toast.LENGTH_SHORT).show();
@@ -224,7 +222,7 @@ public class Group_DO extends AppCompatActivity {
 
 
 
-                simpleAdapter.notifyDataSetChanged();
+                mAdapter.notifyDataSetChanged();
 
                 return true;
             }
